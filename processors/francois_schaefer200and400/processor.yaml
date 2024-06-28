@@ -11,7 +11,7 @@ inputs:
       sessions:
         - types: Baseline
           assessors:
-          - types: francois_schaefer200_v1, francois_schaefer400_v1
+          - types: francois_schaefer200_v1,francois_schaefer400_v1
             resources:
               - resource: CONNECTIVITY_MATRICES
 command:
