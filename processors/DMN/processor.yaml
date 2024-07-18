@@ -16,7 +16,7 @@ inputs:
               - resource: PREPROC
                 fmatch: ANAT.nii.gz,y_ANAT.nii.gz
               - resource: 1stLevel
-                fmatch: AAL_rois_LR_Post_Cingulate/Zcorr.nii
+                fmatch: AAL_rois_LR_Post_Cingulate/ZCorr.nii
 command:
   type: singularity_exec
   container: BASH
