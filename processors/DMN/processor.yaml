@@ -14,7 +14,9 @@ inputs:
           - types: fmri_rest_v4
             resources:
               - resource: PREPROC
-                fmatch: swbet_rtaREST_spm_res_bpf.nii.gz,ANAT.nii.gz,y_ANAT.nii.gz
+                fmatch: ANAT.nii.gz,y_ANAT.nii.gz
+              - resource: 1stLevel
+                fmatch: AAL_rois_LR_Post_Cingulate/Zcorr.nii
 command:
   type: singularity_exec
   container: BASH
