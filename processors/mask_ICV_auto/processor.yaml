@@ -1,0 +1,21 @@
+---
+containers:
+  - path: ccmvumc_analyses_v1.sif
+    source: docker://ccmvumc/analyses
+requirements:
+  walltime: 0-2
+  memory: 8G
+inputs:
+  xnat:
+    subjects:
+      sessions:
+        - types: Baseline
+          assessors:
+          - types: struct_preproc_v1 
+            resources:
+              - resource: DATA
+                fmatch: mask_ICV_auto.nii.gz
+command:
+  type: singularity_exec
+  container: 
+  args: /bin/bash /REPO/src/mask_ICV_auto/main.sh
