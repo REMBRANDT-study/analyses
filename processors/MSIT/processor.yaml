@@ -1,6 +1,6 @@
 ---
 containers:
-  - name: ANALYSES
+  - name: BASH
     path: bash_latest.sif
 requirements:
   walltime: 0-8
