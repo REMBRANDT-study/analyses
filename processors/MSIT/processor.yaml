@@ -13,7 +13,7 @@ inputs:
           assessors:
           - types: fmri_msit_v5
             resources:
-              - resource: 1stLevel
+              - resource: 1stLEVEL
                 fmatch: s8con_0002.nii.gz
 command:
   type: singularity_exec
