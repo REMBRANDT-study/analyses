@@ -1,0 +1,20 @@
+---
+containers:
+  - name: ANALYSES
+    path: bash_latest.sif
+requirements:
+  walltime: 0-8
+  memory: 8G
+inputs:
+  xnat:
+    subjects:
+      sessions:
+        - types: Baseline
+          assessors:
+          - types: fmri_msit_v5
+            resources:
+              - resource: 1stLevel
+                fmatch: s8con_0002.nii.gz
+  type: singularity_exec
+  container: BASH
+  args: bash -c "mkdir -p /OUTPUTS/DATA && cp -r /INPUTS/* /OUTPUTS/DATA"
