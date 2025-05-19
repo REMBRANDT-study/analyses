@@ -15,6 +15,7 @@ inputs:
             resources:
               - resource: 1stLevel
                 fmatch: s8con_0002.nii.gz
+command:
   type: singularity_exec
   container: BASH
   args: bash -c "mkdir -p /OUTPUTS/DATA && cp -r /INPUTS/* /OUTPUTS/DATA"
