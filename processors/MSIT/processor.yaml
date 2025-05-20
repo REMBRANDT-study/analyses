@@ -9,7 +9,6 @@ inputs:
   xnat:
     subjects:
       sessions:
-        - types: Baseline
           assessors:
           - types: fmri_msit_v5
             resources:
