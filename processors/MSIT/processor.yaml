@@ -9,7 +9,7 @@ inputs:
   xnat:
     subjects:
       sessions:
-          assessors:
+        - assessors:
           - types: fmri_msit_v5
             resources:
               - resource: 1stLEVEL
