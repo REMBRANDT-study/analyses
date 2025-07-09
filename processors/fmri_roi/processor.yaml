@@ -1,6 +1,7 @@
 ---
 containers:
   - name: BASH
+    source: docker://bash
     path: bash_latest.sif
 requirements:
   walltime: 0-2
