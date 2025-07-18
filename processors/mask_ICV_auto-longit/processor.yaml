@@ -10,7 +10,7 @@ inputs:
   xnat:
     subjects:
       sessions: 
-        -  assessors:
+        - assessors:
           - types: struct_preproc_v1 
             resources:
               - resource: DATA
