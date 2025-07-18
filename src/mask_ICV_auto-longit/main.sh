@@ -8,7 +8,7 @@ for i in *;do
 
 	for j in *;do
 
-		VOL=`/REPO/ext/fslstats /INPUTS/$i/$j/*/*/*/mask*.nii.gz -V | awk '{print $2}'`
+		VOL=`/REPO/ext/fslstats /INPUTS/$i/$j/assessors/*/mask*.nii.gz -V | awk '{print $2}'`
 
 		echo "$i,$j,$VOL" >> /OUTPUTS/stats.csv
 
