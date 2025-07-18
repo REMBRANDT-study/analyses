@@ -18,4 +18,4 @@ inputs:
 command:
   type: singularity_exec
   container: ANALYSES
-  args: /bin/bash /REPO/src/mask_ICV_auto/main.sh
+  args: /bin/bash /REPO/src/mask_ICV_auto-longit/main.sh
