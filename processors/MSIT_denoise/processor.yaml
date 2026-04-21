@@ -1,0 +1,44 @@
+---
+containers:
+  - name: BASH
+    path: bash_latest.sif
+requirements:
+  walltime: 0-8
+  memory: 8G
+inputs:
+  xnat:
+    subjects:
+      sessions:
+        - assessors:
+          - types: fmri_msit_denoise_v1
+            resources:
+              - resource: PREPROC
+command:
+  type: singularity_exec
+  container: BASH
+  args: >-
+    bash -c "set -x;
+    mkdir /OUTPUTS/MSIT-Baseline-UIC;
+    mkdir /OUTPUTS/MSIT-Month08-UIC;
+    mkdir /OUTPUTS/MSIT-Month16-UIC;
+    mdkir /OUTPUTS/MSIT-Month24-UIC;
+    mkdir /OUTPUTS/MSIT-Baseline-UPMC;
+    mkdir /OUTPUTS/MSIT-Month08-UPMC;
+    mkdir /OUTPUTS/MSIT-Month16-UPMC;
+    mdkir /OUTPUTS/MSIT-Month24-UPMC;
+    mkdir /OUTPUTS/MSIT-Baseline-VUMC;
+    mkdir /OUTPUTS/MSIT-Month08-VUMC;
+    mkdir /OUTPUTS/MSIT-Month16-VUMC;
+    mdkir /OUTPUTS/MSIT-Month24-VUMC;
+    cp -r /INPUTS/REM*-x-3*a-x-* /OUTPUTS/MSIT-Baseline-UIC;
+    cp -r /INPUTS/REM*-x-3*b-x-* /OUTPUTS/MSIT-Month08-UIC;
+    cp -r /INPUTS/REM*-x-3*c-x-* /OUTPUTS/MSIT-Month16-UIC;
+    cp -r /INPUTS/REM*-x-3*d-x-* /OUTPUTS/MSIT-Month24-UIC;
+    cp -r /INPUTS/REM*-x-2*a-x-* /OUTPUTS/MSIT-Baseline-UPMC;
+    cp -r /INPUTS/REM*-x-2*b-x-* /OUTPUTS/MSIT-Month08-UPMC;
+    cp -r /INPUTS/REM*-x-2*c-x-* /OUTPUTS/MSIT-Month16-UPMC;
+    cp -r /INPUTS/REM*-x-2*d-x-* /OUTPUTS/MSIT-Month24-UPMC;
+    cp -r /INPUTS/REM*-x-1*a-x-* /OUTPUTS/MSIT-Baseline-VUMC;
+    cp -r /INPUTS/REM*-x-1*b-x-* /OUTPUTS/MSIT-Month08-VUMC;
+    cp -r /INPUTS/REM*-x-1*c-x-* /OUTPUTS/MSIT-Month16-VUMC;
+    cp -r /INPUTS/REM*-x-1*d-x-* /OUTPUTS/MSIT-Month24-VUMC;"
