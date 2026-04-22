@@ -30,16 +30,15 @@ command:
     mkdir /OUTPUTS/MSIT-Month08-VUMC;
     mkdir /OUTPUTS/MSIT-Month16-VUMC;
     mkdir /OUTPUTS/MSIT-Month24-VUMC;
-    INPUTS/14202/14202c/assessors/REMBRANDT-x-14202-x-14202c-x-fmri_msit_denoise_v1-x-7cec8ba1/.zi
-    cp -r /INPUTS/*/*/*/REM*-x-3*a-x-* /OUTPUTS/MSIT-Baseline-UIC;
-    cp -r /INPUTS/*/*/*/REM*-x-3*b-x-* /OUTPUTS/MSIT-Month08-UIC;
-    cp -r /INPUTS/*/*/*/REM*-x-3*c-x-* /OUTPUTS/MSIT-Month16-UIC;
-    cp -r /INPUTS/*/*/*/REM*-x-3*d-x-* /OUTPUTS/MSIT-Month24-UIC;
-    cp -r /INPUTS/*/*/*/REM*-x-2*a-x-* /OUTPUTS/MSIT-Baseline-UPMC;
-    cp -r /INPUTS/*/*/*/REM*-x-2*b-x-* /OUTPUTS/MSIT-Month08-UPMC;
-    cp -r /INPUTS/*/*/*/REM*-x-2*c-x-* /OUTPUTS/MSIT-Month16-UPMC;
-    cp -r /INPUTS/*/*/*/REM*-x-2*d-x-* /OUTPUTS/MSIT-Month24-UPMC;
-    cp -r /INPUTS/*/*/*/REM*-x-1*a-x-* /OUTPUTS/MSIT-Baseline-VUMC;
-    cp -r /INPUTS/*/*/*/REM*-x-1*b-x-* /OUTPUTS/MSIT-Month08-VUMC;
-    cp -r /INPUTS/*/*/*/REM*-x-1*c-x-* /OUTPUTS/MSIT-Month16-VUMC;
-    cp -r /INPUTS/*/*/*/REM*-x-1*d-x-* /OUTPUTS/MSIT-Month24-VUMC;"
+    mv /INPUTS/*/*/*/REM*-x-3*a-x-* /OUTPUTS/MSIT-Baseline-UIC;
+    mv /INPUTS/*/*/*/REM*-x-3*b-x-* /OUTPUTS/MSIT-Month08-UIC;
+    mv /INPUTS/*/*/*/REM*-x-3*c-x-* /OUTPUTS/MSIT-Month16-UIC;
+    mv /INPUTS/*/*/*/REM*-x-3*d-x-* /OUTPUTS/MSIT-Month24-UIC;
+    mv /INPUTS/*/*/*/REM*-x-2*a-x-* /OUTPUTS/MSIT-Baseline-UPMC;
+    mv /INPUTS/*/*/*/REM*-x-2*b-x-* /OUTPUTS/MSIT-Month08-UPMC;
+    mv /INPUTS/*/*/*/REM*-x-2*c-x-* /OUTPUTS/MSIT-Month16-UPMC;
+    mv /INPUTS/*/*/*/REM*-x-2*d-x-* /OUTPUTS/MSIT-Month24-UPMC;
+    mv /INPUTS/*/*/*/REM*-x-1*a-x-* /OUTPUTS/MSIT-Baseline-VUMC;
+    mv /INPUTS/*/*/*/REM*-x-1*b-x-* /OUTPUTS/MSIT-Month08-VUMC;
+    mv /INPUTS/*/*/*/REM*-x-1*c-x-* /OUTPUTS/MSIT-Month16-VUMC;
+    mv /INPUTS/*/*/*/REM*-x-1*d-x-* /OUTPUTS/MSIT-Month24-VUMC;"
