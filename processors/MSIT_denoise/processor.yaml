@@ -21,15 +21,15 @@ command:
     mkdir /OUTPUTS/MSIT-Baseline-UIC;
     mkdir /OUTPUTS/MSIT-Month08-UIC;
     mkdir /OUTPUTS/MSIT-Month16-UIC;
-    mdkir /OUTPUTS/MSIT-Month24-UIC;
+    mkdir /OUTPUTS/MSIT-Month24-UIC;
     mkdir /OUTPUTS/MSIT-Baseline-UPMC;
     mkdir /OUTPUTS/MSIT-Month08-UPMC;
     mkdir /OUTPUTS/MSIT-Month16-UPMC;
-    mdkir /OUTPUTS/MSIT-Month24-UPMC;
+    mkdir /OUTPUTS/MSIT-Month24-UPMC;
     mkdir /OUTPUTS/MSIT-Baseline-VUMC;
     mkdir /OUTPUTS/MSIT-Month08-VUMC;
     mkdir /OUTPUTS/MSIT-Month16-VUMC;
-    mdkir /OUTPUTS/MSIT-Month24-VUMC;
+    mkdir /OUTPUTS/MSIT-Month24-VUMC;
     INPUTS/14202/14202c/assessors/REMBRANDT-x-14202-x-14202c-x-fmri_msit_denoise_v1-x-7cec8ba1/.zi
     cp -r /INPUTS/*/*/*/REM*-x-3*a-x-* /OUTPUTS/MSIT-Baseline-UIC;
     cp -r /INPUTS/*/*/*/REM*-x-3*b-x-* /OUTPUTS/MSIT-Month08-UIC;
