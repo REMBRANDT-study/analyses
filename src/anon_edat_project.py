@@ -27,14 +27,21 @@ DROP_COLUMNS = [
 ]
 
 
+def get_link():
+    return pd.read_csv(io.StringIO(LINKEDLIST), sep=r'\s+', dtype=str)
+
+
 def load_edat_date(filename):
     return read_edat(filename).SessionDate.iloc[0]
 
 
 def get_edat_date(row):
     f = f'{row.ROOTDIR}/{row.SUBJECT}/{row.SESSION}/{row.SCAN}/EDAT/{row.EDAT}'
-    print(f)
-    row['EDATDATE'] = load_edat_date(f)
+    try:
+        row['EDATDATE'] = load_edat_date(f)
+    except Exception as err:
+        row['EDATDATE'] = ''
+
     return row
 
 
@@ -93,11 +100,12 @@ def load_dir(rootdir):
             scan = scans[0]
 
             edats = os.listdir(f'{rootdir}/{subj}/{sess}/{scan}/EDAT')
+            edats = [x for x in edats if x.endswith('tab.txt')]
 
             if len(edats) == 0:
                 print(f'{subj}:{sess}:{scan}:NO EDATS')
                 continue
-            elif len(scans) > 1:
+            elif len(edats) > 1:
                 print(f'{subj}:{sess}:{scan}:MULTIPLE EDATS')
                 continue
 
@@ -114,13 +122,21 @@ def anon_dir(project, rootdir):
     df = pd.DataFrame(records).sort_values(by=['SESSION'])
     df['ROOTDIR'] = rootdir
 
+    print(f'loaded:{len(df)}')
+
     print('loading scans from XNAT')
     scans = Garjus().scans(projects=[project])
     df = pd.DataFrame.merge(df, scans[['SESSION', 'DATE']].drop_duplicates(), left_on='SESSION', right_on='SESSION')
 
+    print(f'merged:{len(df)}')
+
     print('drop MISSING and CONVERT_FAILED')
     df = df[df.EDAT != 'MISSING_DATA.txt']
     df = df[df.EDAT != 'CONVERT_FAILED.txt']
+    df = df[df.EDAT != 'contrasts.mat']
+    df = df[~df.EDAT.str.endswith('.edat2')]
+
+    print(f'left:{len(df)}')
 
     print('loading edat dates')
     df = df.apply(get_edat_date, axis=1)
@@ -131,10 +147,17 @@ def anon_dir(project, rootdir):
     print(df[df.DATEDIFF != '0 days'])
     df = df[df.DATEDIFF == '0 days']
 
-    print('loading link table without shifted dates')
-    linked = Garjus().load_linked(project, delete_dates=True).dropna()
+    if False:
+        print('using local linked')
+        linked = get_link()
+    else:
+        print('loading link table without shifted dates')
+        linked = Garjus().load_linked(project, delete_dates=True).dropna()
+
     df = pd.merge(df, linked, left_on='SUBJECT', right_on='ID').drop(columns=['ID'])
     df['anon_session'] = df['anon_id'] + df['SESSION'].str[-1]
+
+    print(f'matched:{len(df)}')
 
     print('anon each file')
     count = 0
